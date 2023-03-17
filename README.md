@@ -1,1 +1,1 @@
-## Smile Scrapper Project
+## Smile Scraper Project
