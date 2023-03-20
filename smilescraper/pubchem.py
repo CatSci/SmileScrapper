@@ -28,7 +28,7 @@ def get_driver():
         option = webdriver.ChromeOptions()
         option.add_argument('--headless')
         option.add_argument('--no-sandbox')
-        service = Service(ChromeDriverManager().install())
+        service = Service(ChromeDriverManager(version = "111.0.5563.64").install())
         driver = webdriver.Chrome(options = option)
         return driver
     except Exception as e:
