@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import chromedriver_binary
 
 from smilescraper.logger import logging
 from smilescraper.exception import CustomException
@@ -27,8 +28,8 @@ def get_driver():
         option = webdriver.ChromeOptions()
         option.add_argument('--headless')
         option.add_argument('--no-sandbox')
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(options = option, service= service)
+        # service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(options = option)
         return driver
     except Exception as e:
         # logging.error('Error Occured in loading Driver')

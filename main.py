@@ -69,7 +69,6 @@ if st.button('Search'):
                 st.error('Please enter values or upload file not both')
             
             df = get_data(data = data, input_cas_list= input_cas_list)
-            st.table(df)
             smile_output = convert_df(df)
             st.success('Successful')
             st.table(df)
