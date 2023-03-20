@@ -9,24 +9,21 @@ from smilescraper.logger import logging
 from smilescraper.pubchem import get_data
 from smilescraper.utils import convert_df
 # st.set_page_config(page_title="My Streamlit App", page_icon=":smiley:", layout="wide", page_bg_color="#11b2b")
-# ed9439
+# background-color: ed9439;
+# color:#0f1b2a;
 st.markdown("""
 <style>
 div.stButton > button:first-child {
-    background-color: #1d3828;
+    background-color: #ed9439;
     color:#0f1b2a;
     border:None;
 }
 div.stButton > button:first-child:focus {
-    background-color: #1d3828;
+    background-color: #ed9439;
     color:#0f1b2a;
     border:None;
 }
-div.stDownload_Button > button:first-child {
-background-color: #ed9439;
-    color:#0f1b2a;
-    border:None;
-}
+
 </style>""", unsafe_allow_html=True)
 st.header('Smile Scraper')
 
