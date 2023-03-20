@@ -69,15 +69,15 @@ if st.button('Search'):
             try:
                 df = get_data(data = data, input_cas_list= input_cas_list)
                 st.table(df)
-                # smile_output = convert_df(df)
-                # st.success('Successful')
-                # st.table(df)
-                # st.download_button(
-                #     label = 'Download data as CSV',
-                #     data = smile_output,
-                #     file_name = 'smiles.csv',
-                #     mime = 'text/csv',
-                # )
+                smile_output = convert_df(df)
+                st.success('Successful')
+                st.table(df)
+                st.download_button(
+                    label = 'Download data as CSV',
+                    data = smile_output,
+                    file_name = 'smiles.csv',
+                    mime = 'text/csv',
+                )
 
             except:
                 st.error('Error Occurred')
