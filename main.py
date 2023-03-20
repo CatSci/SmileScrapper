@@ -9,15 +9,16 @@ from smilescraper.logger import logging
 from smilescraper.pubchem import get_data
 from smilescraper.utils import convert_df
 # st.set_page_config(page_title="My Streamlit App", page_icon=":smiley:", layout="wide", page_bg_color="#11b2b")
+# ed9439
 st.markdown("""
 <style>
 div.stButton > button:first-child {
-    background-color: #ed9439;
+    background-color: #1d3828;
     color:#0f1b2a;
     border:None;
 }
 div.stButton > button:first-child:focus {
-    background-color: #ed9439;
+    background-color: #1d3828;
     color:#0f1b2a;
     border:None;
 }
@@ -66,21 +67,20 @@ if st.button('Search'):
                 input_cas_list = input_df['Cas No'].values
             else:
                 st.error('Please enter values or upload file not both')
-            try:
-                df = get_data(data = data, input_cas_list= input_cas_list)
-                st.table(df)
-                smile_output = convert_df(df)
-                st.success('Successful')
-                st.table(df)
-                st.download_button(
-                    label = 'Download data as CSV',
-                    data = smile_output,
-                    file_name = 'smiles.csv',
-                    mime = 'text/csv',
-                )
+            
+            df = get_data(data = data, input_cas_list= input_cas_list)
+            st.table(df)
+            smile_output = convert_df(df)
+            st.success('Successful')
+            st.table(df)
+            st.download_button(
+                label = 'Download data as CSV',
+                data = smile_output,
+                file_name = 'smiles.csv',
+                mime = 'text/csv',
+            )
 
-            except:
-                st.error('Error Occurred')
+            
 
 
 
