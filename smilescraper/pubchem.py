@@ -18,7 +18,6 @@ import time
 
 logging.basicConfig(level=logging.INFO)
 
-WAIT_TIME = 3
 
 # def get_driver():
 #     """Start Selenium Chrome Driver
@@ -181,6 +180,8 @@ def get_canonical_smiles(cas_number):
     # Send a GET request to PubChem for the given CAS number
     url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{cas_number}/property/CanonicalSMILES/TXT"
     response = requests.get(url)
+
+    time.sleep(0.2)
     
     if response.status_code == 200:
         smiles = response.content.decode().strip()
