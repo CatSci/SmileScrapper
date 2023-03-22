@@ -76,8 +76,8 @@ if st.button('Search'):
                     file_name = 'smiles.csv',
                     mime = 'text/csv',
                 )
-            except:
-                st.error('Error Occurred')
+            except Exception as e:
+                raise CustomException(error_msg= e, error_detail= sys)
 
             
 
