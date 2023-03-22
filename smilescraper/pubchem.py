@@ -155,7 +155,6 @@ def get_data(data, input_cas_list):
     Returns:
         _type_: _description_
     """
-    start_time = time.time()
     count = 0
     for i in input_cas_list:           
         start_link = "https://pubchem.ncbi.nlm.nih.gov/#query=" + str(i)
@@ -172,6 +171,4 @@ def get_data(data, input_cas_list):
         print('{} CAS Number is completed'.format(count))
     
     df = pd.DataFrame(list(data.items()), columns= ['Cas No', 'Smile'])
-    end_time = time.time()
-    st.write(end_time - start_time)
     return df
