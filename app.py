@@ -25,7 +25,7 @@ div.stButton > button:first-child:focus {
 }
 
 </style>""", unsafe_allow_html=True)
-st.header('Smile Scraper')
+st.title("CAS Number to SMILES Converter")
 
 uploaded_file = st.file_uploader("Choose a file")
 
