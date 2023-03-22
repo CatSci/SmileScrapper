@@ -167,6 +167,7 @@ def get_data(data, input_cas_list):
 
         driver.get(link)
         data = get_smile(data, driver, cas_no= i)
+        st.write(data)
         count += 1
         print('{} CAS Number is completed'.format(count))
     
