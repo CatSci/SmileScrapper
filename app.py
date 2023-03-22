@@ -64,17 +64,18 @@ if st.button('Search'):
                 input_cas_list = input_df['CAS Number'].values
             else:
                 st.error('Please enter values or upload file not both')
-            
-            df = get_data(data = data, input_cas_list= input_cas_list)
-            smile_output = convert_df(df)
-            st.success('Successful')
-            st.table(df)
-            st.download_button(
-                label = 'Download data as CSV',
-                data = smile_output,
-                file_name = 'smiles.csv',
-                mime = 'text/csv',
-            )
+                
+            if input_cas_list:
+                df = get_data(data = data, input_cas_list= input_cas_list)
+                smile_output = convert_df(df)
+                st.success('Successful')
+                st.table(df)
+                st.download_button(
+                    label = 'Download data as CSV',
+                    data = smile_output,
+                    file_name = 'smiles.csv',
+                    mime = 'text/csv',
+                )
 
             
 
