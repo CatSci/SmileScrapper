@@ -197,8 +197,5 @@ def get_data(df):
         progress_bar.progress(progress)
         status_text.text(f"{int(progress*100)}% Complete")
 
-        if i== 10:
-            break
-
     
     return df
