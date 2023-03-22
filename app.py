@@ -61,7 +61,7 @@ if st.button('Search'):
                 else:
                     input_df = pd.read_csv(uploaded_file)
                 
-                input_cas_list = input_df['Cas No'].values
+                input_cas_list = input_df['CAS Number'].values
             else:
                 st.error('Please enter values or upload file not both')
             
