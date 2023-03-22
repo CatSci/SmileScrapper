@@ -192,10 +192,15 @@ def get_data(df):
     progress_bar = st.progress(0)
     status_text = st.empty()
     for i, cas_number in df["CAS Number"].items():
-        df.at[i, "SMILES"] = get_canonical_smiles(cas_number)
+        if pd.isna(cas_number):
+            df.at[i, "SMILES"] = ""
+        else:
+            df.at[i, "SMILES"] = get_canonical_smiles(cas_number)
         progress = (i + 1) / len(df)
         progress_bar.progress(progress)
         status_text.text(f"{int(progress*100)}% Complete")
-
+    
+        if i == 10:
+            break
     
     return df
