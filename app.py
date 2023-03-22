@@ -26,6 +26,7 @@ div.stButton > button:first-child:focus {
 
 </style>""", unsafe_allow_html=True)
 st.title("CAS Number to SMILES Converter")
+st.info('Please make sure you cas value column name is **CAS Number**')
 
 uploaded_file = st.file_uploader("Choose a file")
 
@@ -49,8 +50,8 @@ if st.button('Search'):
             file_name = 'smiles.csv',
             mime = 'text/csv',
         )
-    except:
-        st.error('File not Uplaoded')
+    except Exception as e:
+        st.error('File not uplaoded or correct file not uplaoded')
 
 
 ########################

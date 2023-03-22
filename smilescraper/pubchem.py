@@ -174,13 +174,14 @@ WAIT_TIME = 3
     
 #     df = pd.DataFrame(list(data.items()), columns= ['Cas No', 'Smile'])
 #     return df
-
+requests_made = 0
+start_time = time.time()
 
 def get_canonical_smiles(cas_number):
     # Send a GET request to PubChem for the given CAS number
     url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{cas_number}/property/CanonicalSMILES/TXT"
     response = requests.get(url)
-
+    
     if response.status_code == 200:
         smiles = response.content.decode().strip()
         if smiles != "":
@@ -199,8 +200,5 @@ def get_data(df):
         progress = (i + 1) / len(df)
         progress_bar.progress(progress)
         status_text.text(f"{int(progress*100)}% Complete")
-    
-        if i == 10:
-            break
     
     return df
