@@ -40,17 +40,17 @@ def get_data(df):
     for i, cas_number in df["CAS Number"].items():
         if pd.isna(cas_number):
             df.at[i, "SMILES"] = ""
-            df.at[i , "InChi"] = ""
+            df.at[i , "InChI"] = ""
         else:
             result = get_smile_inchi(cas_number)
             if result is not None:
                 smile = result['Smile']
                 inchi = result['InChi']
                 df.at[i, "SMILES"] = smile
-                df.at[i, "InChi"] = inchi
+                df.at[i, "InChI"] = inchi
             else:
                 df.at[i, "SMILES"] = ""
-                df.at[i, "InChi"] = ""
+                df.at[i, "InChI"] = ""
         progress = (i + 1) / len(df)
         progress_bar.progress(progress)
         status_text.text(f"{int(progress*100)}% Complete")
